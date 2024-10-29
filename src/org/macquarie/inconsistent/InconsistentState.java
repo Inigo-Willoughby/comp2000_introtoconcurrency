@@ -52,7 +52,7 @@ public class InconsistentState {
 	 * 
 	 * @param pValue the value to update the current state with,
 	 */
-	public void setValues(long pValue) {
+	public synchronized void setValues(long pValue) {
 		mValue = pValue;
 		doPause(3);
 		mValueTimesTwo = pValue * 2;
@@ -64,7 +64,7 @@ public class InconsistentState {
 	 * 
 	 * @return true if it is.
 	 */
-	public boolean isConsistent() {
+	public synchronized boolean isConsistent() {
 		return (mValue * 2 == mValueTimesTwo);
 	}
 	
